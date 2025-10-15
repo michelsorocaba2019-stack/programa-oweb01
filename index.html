@@ -1,53 +1,242 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário da ONG</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONG Amigos dos Animais</title>
+  <style>
+    /* ==================== RESET ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7faff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ==================== CABEÇALHO ==================== */
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: white;
+      color: #1e3a8a;
+    }
+
+    /* ==================== BANNER ==================== */
+    .banner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 40px 0;
+      background: linear-gradient(180deg, #dbeafe, #f7faff);
+    }
+
+    .banner img {
+      width: 280px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+      transition: transform 0.4s;
+    }
+
+    .banner img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ==================== CONTEÚDO PRINCIPAL ==================== */
+    main {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    main h1 {
+      color: #1e3a8a;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    /* ==================== SEÇÃO ADOÇÃO ==================== */
+    .adocao {
+      background-color: #e0ecff;
+      padding: 40px;
+      border-radius: 15px;
+      width: 85%;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .adocao h2 {
+      color: #1e40af;
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .adocao p {
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .botao {
+      display: inline-block;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .botao:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* ==================== RODAPÉ ==================== */
+    footer {
+      background-color: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer p {
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+
+    /* ==================== RESPONSIVIDADE ==================== */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      .banner img {
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+      }
+
+      .adocao {
+        width: 95%;
+        padding: 25px;
+      }
+    }
+  </style>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Usuário da ONG AMIGÃO</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="projeto.html">Projeto</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-            </ul>
-        </nav>   
-    </header>
-    <main>
-        <section>
-            <h2>QUEM SOMOS</h2>
-            <p>🐾 Somos uma ONG que nasceu do amor e da vontade de fazer a diferença na vida dos cães abandonados. Estamos apenas começando, mas viemos para ficar — com o coração aberto e a missão de salvar, cuidar e encontrar um lar cheio de carinho para cada patinha que cruzar o nosso caminho.
 
-Acreditamos que todo animal merece uma segunda chance, e com a ajuda de pessoas como você, vamos transformar a realidade dos cães em todo o Brasil. 💚🐕</p>
-<img src="imagens/cachorro.jpg" alt="Imagem de cães resgatados pela ONG">
-        </section>
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">🐶 ONG Amigos dos Animais</div>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="projeto.html">Projetos</a>
+        <a href="cadastro.html">Cadastros</a>
+      </nav>
+    </div>
+  </header>
 
-        <section>
-            <h2>Missão da ONG AMIGÃO</h2>
-            <P>Nossa missão é resgatar, proteger e encontrar um lar amoroso para cada cachorro em situação de abandono.
-Trabalhamos com dedicação e carinho para dar uma nova chance a esses animais, promovendo o respeito, o cuidado e a conscientização sobre a adoção responsável em todo o Brasil.</P>
-        </section>
-        <section>
-            <h2>Contato com ONG AMIGÂO</h2>
-            <address>
-                <p>Endereço</p>
-                <p>Rua dos Animais, 123 - Bairro dos Cães, Cidade, Estado, CEP 12345-678</p>
-                <p>Telefone: (11) 1234-5678</p>
-                <p>Email: contato@organizçaoamigao.org.br</p>
-                <p>Redes Sociais:</p>
-                <ul>
-                    <li><a href="https://www.facebook.com/organizçaoamigao" target="_blank">Facebook</a></li>
-                    <li><a href="https://www.instagram.com/organizçaoamigao" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.twitter.com/organizçaoamigao" target="_blank">Twitter</a></li>
+  <!-- ==================== BANNER ==================== -->
+  <section class="banner">
+    <img src="Imagens/caes.jpg" alt="Cachorro feliz">
+    <img src="Imagens/gatos.jpg" alt="Gato fofo">
+    <img src="Imagens/caes e gatos.jpg" alt="Cachorro carinhoso">
+  </section>
 
-            </address>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 ONG AMIGÃO. Todos os direitos reservados.</p>
-    </footer>
+  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+  <main id="inicio">
+    <h1>Quem Somos</h1>
+    <p>
+      A <strong>ONG Amigos dos Animais</strong> é uma instituição sem fins lucrativos que nasceu com o propósito de
+      resgatar, cuidar e encontrar um lar amoroso para cães e gatos abandonados.  
+      Trabalhamos com dedicação para promover a conscientização sobre adoção responsável e o respeito aos animais.
+    </p>
+
+    <section class="adocao" id="projetos">
+      <h2>Adote um Amigo ❤️</h2>
+      <p>
+        Cada animal que resgatamos tem uma história única — e você pode fazer parte do novo capítulo dela.  
+        Nossos cães e gatos estão vacinados, castrados e prontos para receber amor de uma nova família.  
+        Transforme uma vida: adote, não compre!
+      </p>
+      <a href="cadastro.html" class="botao">Quero Adotar</a>
+    </section>
+  </main>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer>
+    <p>📞 Telefone: (11) 99999-9999 | ✉️ Email: contato@amigosdosanimais.org</p>
+    <p>📍 Endereço: Rua dos Animais, 123 - São Paulo, SP</p>
+    <p>© 2025 ONG Amigos dos Animais — Todos os direitos reservados</p>
+  </footer>
+
 </body>
 </html>

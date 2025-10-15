@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - ONG Amigos dos Animais</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7faff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: white;
+      color: #1e3a8a;
+    }
+
+    main {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #1e3a8a;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: #e0ecff;
+      padding: 40px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #1e3a8a;
+      box-shadow: 0 0 5px rgba(30,58,138,0.5);
+    }
+
+    .botao {
+      display: inline-block;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .botao:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        gap: 15px;
+      }
+
+      form {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">🐶 ONG Amigos dos Animais</div>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="cadastros.html">Cadastros</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <h1>Cadastro</h1>
+    <form id="cadastroForm">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" name="cpf" maxlength="14" required>
+
+      <label for="telefone">Telefone</label>
+      <input type="text" id="telefone" name="telefone" maxlength="15" required>
+
+      <label for="dataNascimento">Data de Nascimento</label>
+      <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+      <label for="endereco">Endereço</label>
+      <input type="text" id="endereco" name="endereco" required>
+
+      <label for="cep">CEP</label>
+      <input type="text" id="cep" name="cep" maxlength="9" required>
+
+      <label for="cidade">Cidade</label>
+      <input type="text" id="cidade" name="cidade" required>
+
+      <label for="estado">Estado</label>
+      <select id="estado" name="estado" required>
+        <option value="">Selecione</option>
+        <option value="AC">AC</option>
+        <option value="AL">AL</option>
+        <option value="AP">AP</option>
+        <option value="AM">AM</option>
+        <option value="BA">BA</option>
+        <option value="CE">CE</option>
+        <option value="DF">DF</option>
+        <option value="ES">ES</option>
+        <option value="GO">GO</option>
+        <option value="MA">MA</option>
+        <option value="MT">MT</option>
+        <option value="MS">MS</option>
+        <option value="MG">MG</option>
+        <option value="PA">PA</option>
+        <option value="PB">PB</option>
+        <option value="PR">PR</option>
+        <option value="PE">PE</option>
+        <option value="PI">PI</option>
+        <option value="RJ">RJ</option>
+        <option value="RN">RN</option>
+        <option value="RS">RS</option>
+        <option value="RO">RO</option>
+        <option value="RR">RR</option>
+        <option value="SC">SC</option>
+        <option value="SP">SP</option>
+        <option value="SE">SE</option>
+        <option value="TO">TO</option>
+      </select>
+
+      <button type="submit" class="botao">Enviar Cadastro</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>📞 Telefone: (11) 99999-9999 | ✉️ Email: contato@amigosdosanimais.org</p>
+    <p>📍 Endereço: Rua dos Animais, 123 - São Paulo, SP</p>
+    <p>© 2025 ONG Amigos dos Animais — Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Máscaras -->
+  <script>
+    // Máscara de CPF
+    const cpf = document.getElementById('cpf');
+    cpf.addEventListener('input', function(e) {
+      let value = cpf.value.replace(/\D/g, '');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      cpf.value = value;
+    });
+
+    // Máscara de telefone
+    const telefone = document.getElementById('telefone');
+    telefone.addEventListener('input', function(e) {
+      let value = telefone.value.replace(/\D/g, '');
+      if(value.length > 10) {
+        value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+      } else {
+        value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+      }
+      telefone.value = value;
+    });
+
+    // Máscara de CEP
+    const cep = document.getElementById('cep');
+    cep.addEventListener('input', function(e) {
+      let value = cep.value.replace(/\D/g, '');
+      value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+      cep.value = value;
+    });
+
+    // Submissão do formulário (exemplo)
+    const form = document.getElementById('cadastroForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Cadastro enviado com sucesso!');
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
