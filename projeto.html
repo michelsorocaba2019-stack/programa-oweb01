@@ -8,85 +8,16 @@
 </head>
 <body>
 
-  <header>
-    <div class="container header-content">
-      <div class="logo">🐶 ONG Amigos dos Animais</div>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    </div>
-  </header>
+  <header>...</header>
+  <nav class="menu-mobile">...</nav>
+  <section class="banner">...</section>
 
-  <nav class="menu-mobile">
-    <ul class="menu">
-      <li><a href="index.html">Início</a></li>
-      <li class="dropdown">
-        <a href="#" class="active">Projetos ▾</a>
-        <ul class="submenu">
-          <li><a href="projeto.html">Ver Projetos</a></li>
-          <li><a href="#">Campanhas</a></li>
-        </ul>
-      </li>
-      <li><a href="cadastro.html">Cadastros</a></li>
-    </ul>
-  </nav>
+  <main></main>
 
-  <main>
-    <h1>Nossos Projetos</h1>
-    <p class="intro">
-      Conheça alguns dos nossos projetos que fazem a diferença na vida de centenas de animais resgatados.  
-      Trabalhamos com amor, responsabilidade e o desejo de transformar o futuro dos nossos amigos de quatro patas.
-    </p>
-
-    <div class="projetos">
-
-      <div class="card">
-        <img src="imagens/caes-e-gatos.jpg" alt="Resgate de cachorro com carinho">
-        <div class="card-content">
-          <h2>Projeto Resgate Feliz</h2>
-          <span class="badge badge-resgate">Ação Rápida</span>
-          <p>
-            Resgatamos cães e gatos abandonados nas ruas, oferecendo abrigo, alimentação, cuidados veterinários e muito carinho.
-            Cada animal recebe uma nova chance de viver com dignidade e amor.
-          </p>
-          <a href="#" class="botao">Saiba Mais</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="imagens/lar.jpg" alt="Cachorro sendo cuidado em lar temporário">
-        <div class="card-content">
-          <h2>Lar Temporário</h2>
-          <span class="badge badge-apoio">Voluntariado</span>
-          <p>
-            Criamos uma rede de lares temporários para acolher os animais enquanto esperam por adoção.  
-            Assim, garantimos que cada um tenha um espaço seguro e cheio de amor até encontrar uma família definitiva.
-          </p>
-          <a href="#" class="botao">Saiba Mais</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="imagens/ensino.jpg" alt="Crianças aprendendo sobre adoção de animais">
-        <div class="card-content">
-          <h2>Educação e Conscientização</h2>
-          <span class="badge badge-educacao">Conscientização</span>
-          <p>
-            Promovemos palestras e campanhas em escolas e comunidades para conscientizar sobre o respeito, a adoção responsável
-            e os cuidados com os animais. A mudança começa pela educação.
-          </p>
-          <a href="#" class="botao">Saiba Mais</a>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <footer>
-    <p>📞 Telefone: (11) 99999-9999 | ✉️ Email: contato@amigosdosanimais.org</p>
-    <p>📍 Endereço: Rua dos Animais, 123 - São Paulo, SP</p>
-    <p>© 2025 ONG Amigos dos Animais — Todos os direitos reservados</p>
-  </footer>
+  <footer>...</footer>
 
   <script src="script.js"></script>
+  <script>window.onload = function() { if (window.location.pathname.includes('projeto.html')) window.location.href = 'index.html'; }</script>
 
 </body>
 </html>
