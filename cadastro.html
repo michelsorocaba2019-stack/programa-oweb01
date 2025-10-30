@@ -3,170 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro - ONG Amigos dos Animais</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f7faff;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 20px 0;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 17px;
-      padding: 8px 15px;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background-color: white;
-      color: #1e3a8a;
-    }
-
-    main {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      color: #1e3a8a;
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    form {
-      background-color: #e0ecff;
-      padding: 40px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 700px;
-      margin: 0 auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #1e3a8a;
-      box-shadow: 0 0 5px rgba(30,58,138,0.5);
-    }
-
-    .botao {
-      display: inline-block;
-      background-color: #1e3a8a;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .botao:hover {
-      background-color: #1d4ed8;
-      transform: translateY(-2px);
-    }
-
-    footer {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 50px;
-    }
-
-    footer p {
-      margin-bottom: 5px;
-      font-size: 15px;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        gap: 15px;
-      }
-
-      form {
-        padding: 25px;
-      }
-    }
-  </style>
+  <title>Cadastros - ONG Amigos dos Animais</title>
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
 
-  <!-- Cabeçalho -->
   <header>
     <div class="container header-content">
       <div class="logo">🐶 ONG Amigos dos Animais</div>
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="projeto.html">Projetos</a>
-        <a href="cadastro.html">Cadastros</a>
-      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
-  <!-- Conteúdo principal -->
+  <nav class="menu-mobile">
+    <ul class="menu">
+      <li><a href="index.html">Início</a></li>
+      <li class="dropdown">
+        <a href="#">Projetos ▾</a>
+        <ul class="submenu">
+          <li><a href="projeto.html">Ver Projetos</a></li>
+          <li><a href="#">Campanhas</a></li>
+        </ul>
+      </li>
+      <li><a href="cadastro.html" class="active">Cadastros</a></li>
+    </ul>
+  </nav>
+
   <main>
     <h1>Cadastro</h1>
     <form id="cadastroForm">
@@ -236,46 +98,7 @@
     <p>© 2025 ONG Amigos dos Animais — Todos os direitos reservados</p>
   </footer>
 
-  <!-- Máscaras -->
-  <script>
-    // Máscara de CPF
-    const cpf = document.getElementById('cpf');
-    cpf.addEventListener('input', function(e) {
-      let value = cpf.value.replace(/\D/g, '');
-      value = value.replace(/(\d{3})(\d)/, '$1.$2');
-      value = value.replace(/(\d{3})(\d)/, '$1.$2');
-      value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-      cpf.value = value;
-    });
-
-    // Máscara de telefone
-    const telefone = document.getElementById('telefone');
-    telefone.addEventListener('input', function(e) {
-      let value = telefone.value.replace(/\D/g, '');
-      if(value.length > 10) {
-        value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
-      } else {
-        value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
-      }
-      telefone.value = value;
-    });
-
-    // Máscara de CEP
-    const cep = document.getElementById('cep');
-    cep.addEventListener('input', function(e) {
-      let value = cep.value.replace(/\D/g, '');
-      value = value.replace(/^(\d{5})(\d)/, '$1-$2');
-      cep.value = value;
-    });
-
-    // Submissão do formulário (exemplo)
-    const form = document.getElementById('cadastroForm');
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Cadastro enviado com sucesso!');
-      form.reset();
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

@@ -4,173 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projetos - ONG Amigos dos Animais</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f7faff;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 20px 0;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 17px;
-      padding: 8px 15px;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background-color: white;
-      color: #1e3a8a;
-    }
-
-    main {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    main h1 {
-      color: #1e3a8a;
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    main p.intro {
-      max-width: 800px;
-      margin: 0 auto 50px;
-      color: #444;
-      font-size: 18px;
-    }
-
-    .projetos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background-color: #e0ecff;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 20px;
-      text-align: left;
-    }
-
-    .card-content h2 {
-      color: #1e40af;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .card-content p {
-      font-size: 16px;
-      color: #444;
-      margin-bottom: 20px;
-    }
-
-    .botao {
-      display: inline-block;
-      background-color: #1e3a8a;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .botao:hover {
-      background-color: #1d4ed8;
-    }
-
-    footer {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 50px;
-    }
-
-    footer p {
-      margin-bottom: 5px;
-      font-size: 15px;
-    }
-  </style>
-
-  <!-- Cabeçalho -->
   <header>
     <div class="container header-content">
       <div class="logo">🐶 ONG Amigos dos Animais</div>
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="projeto.html">Projetos</a>
-        <a href="cadastro.html">Cadastros</a>
-      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
-  <!-- Conteúdo principal -->
+  <nav class="menu-mobile">
+    <ul class="menu">
+      <li><a href="index.html">Início</a></li>
+      <li class="dropdown">
+        <a href="#" class="active">Projetos ▾</a>
+        <ul class="submenu">
+          <li><a href="projeto.html">Ver Projetos</a></li>
+          <li><a href="#">Campanhas</a></li>
+        </ul>
+      </li>
+      <li><a href="cadastro.html">Cadastros</a></li>
+    </ul>
+  </nav>
+
   <main>
     <h1>Nossos Projetos</h1>
     <p class="intro">
@@ -180,11 +38,11 @@
 
     <div class="projetos">
 
-      <!-- Projeto 1 -->
       <div class="card">
-        <img src="Imagens/cahorro-e-gato.jpg" alt="Resgate de cachorro com carinho">
+        <img src="imagens/caes-e-gatos.jpg" alt="Resgate de cachorro com carinho">
         <div class="card-content">
           <h2>Projeto Resgate Feliz</h2>
+          <span class="badge badge-resgate">Ação Rápida</span>
           <p>
             Resgatamos cães e gatos abandonados nas ruas, oferecendo abrigo, alimentação, cuidados veterinários e muito carinho.
             Cada animal recebe uma nova chance de viver com dignidade e amor.
@@ -193,11 +51,11 @@
         </div>
       </div>
 
-      <!-- Projeto 2 -->
       <div class="card">
-        <img src="Imagens/Lar.jpg" alt="Cachorro sendo cuidado em lar temporário">
+        <img src="imagens/lar.jpg" alt="Cachorro sendo cuidado em lar temporário">
         <div class="card-content">
           <h2>Lar Temporário</h2>
+          <span class="badge badge-apoio">Voluntariado</span>
           <p>
             Criamos uma rede de lares temporários para acolher os animais enquanto esperam por adoção.  
             Assim, garantimos que cada um tenha um espaço seguro e cheio de amor até encontrar uma família definitiva.
@@ -206,11 +64,11 @@
         </div>
       </div>
 
-      <!-- Projeto 3 -->
       <div class="card">
-        <img src="Imagens/ensino.jpg" alt="Crianças aprendendo sobre adoção de animais">
+        <img src="imagens/ensino.jpg" alt="Crianças aprendendo sobre adoção de animais">
         <div class="card-content">
           <h2>Educação e Conscientização</h2>
+          <span class="badge badge-educacao">Conscientização</span>
           <p>
             Promovemos palestras e campanhas em escolas e comunidades para conscientizar sobre o respeito, a adoção responsável
             e os cuidados com os animais. A mudança começa pela educação.
@@ -222,12 +80,13 @@
     </div>
   </main>
 
-  <!-- Rodapé -->
   <footer>
     <p>📞 Telefone: (11) 99999-9999 | ✉️ Email: contato@amigosdosanimais.org</p>
     <p>📍 Endereço: Rua dos Animais, 123 - São Paulo, SP</p>
     <p>© 2025 ONG Amigos dos Animais — Todos os direitos reservados</p>
   </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>

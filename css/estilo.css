@@ -1,0 +1,555 @@
+/* ===========================================
+    🌈 SISTEMA DE DESIGN - ONG Amigos dos Animais
+    =========================================== */
+:root {
+  /* 🎨 Paleta de Cores */
+  --color-primary: #1e3a8a;
+  --color-secondary: #1d4ed8;
+  --color-accent: #60a5fa;
+  --color-bg: #f7faff;
+  --color-light: #e0ecff;
+  --color-dark: #111827;
+  --color-success: #10b981; /* Verde */
+  --color-danger: #ef4444;  /* Vermelho */
+  --color-neutral: #9ca3af;
+  --color-info: #3b82f6; /* Adicionado para tags informativas */
+  --color-warning: #f59e0b; /* Amarelo */
+
+  /* 🅰️ Tipografia */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 22px;
+  --font-xl: 32px;
+
+  /* 📏 Espaçamento (escala modular) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+}
+
+/* ====== RESET BÁSICO ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* ===========================================
+    CABEÇALHO E NAVEGAÇÃO
+    =========================================== */
+header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--space-2) 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
+
+/* Oculta o menu principal (lista) por padrão */
+.menu-mobile {
+  display: none; /* Oculta o menu na versão desktop */
+}
+
+/* ====== MENU DESKTOP (Mostra a lista UL) ====== */
+/* Usa Media Query para reverter o comportamento e mostrar o menu em telas grandes */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none; /* Oculta o botão hambúrguer no desktop */
+  }
+
+  .menu-mobile {
+    display: block; /* Mostra o bloco NAV no desktop */
+    position: static;
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--font-lg);
+    letter-spacing: 0.4px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+
+  .menu li a:hover,
+  .menu li a.active {
+    background-color: white;
+    color: var(--color-primary);
+  }
+}
+
+/* ====== DROPDOWN (Desktop) ====== */
+@media (min-width: 769px) {
+  .dropdown {
+    position: relative;
+  }
+
+  .submenu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    min-width: 180px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .submenu a {
+    color: var(--color-primary);
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: var(--font-md);
+  }
+
+  .submenu a:hover {
+    background-color: var(--color-light);
+  }
+
+  .dropdown:hover .submenu {
+    display: flex;
+  }
+}
+
+/* ====== ESTILO DO BOTÃO HAMBÚRGUER (Sempre escondido no Desktop) ====== */
+.menu-toggle {
+  display: none; /* Oculto por padrão, mas será mostrado no mobile */
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  font-size: 28px;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background-color: var(--color-secondary);
+}
+
+
+/* ===========================================
+    MOBILE MENU (Abaixo de 768px)
+    =========================================== */
+@media (max-width: 768px) {
+  /* Mostra o botão hambúrguer no mobile */
+  .menu-toggle {
+    display: block;
+  }
+  
+  /* Estiliza o Menu Mobile como um painel "Slide-in" */
+  .menu-mobile {
+    position: fixed; /* Fixa o menu */
+    top: 66px; /* Altura do header */
+    right: 0;
+    width: 250px; 
+    height: calc(100% - 66px); /* Ocupa o restante da tela */
+    background-color: var(--color-primary); 
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    /* Move o menu para fora da tela (inicialmente) */
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    display: block; /* Garante que o bloco nav exista */
+  }
+
+  /* Estado ativo (a classe 'active' é adicionada pelo JavaScript) */
+  .menu-mobile.active {
+    transform: translateX(0); /* Desliza o menu para dentro da tela */
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-3) 0;
+  }
+
+  .menu li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s;
+    font-size: var(--font-md);
+  }
+
+  .menu li a:hover,
+  .menu li a.active {
+    background-color: var(--color-secondary);
+  }
+
+  /* Estilo para Dropdown (Submenu) dentro do Mobile */
+  .dropdown .submenu {
+    display: block;
+    background-color: var(--color-secondary);
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    min-width: auto;
+    overflow: hidden;
+  }
+    
+  .dropdown .submenu li a {
+    padding-left: 40px; 
+    font-size: var(--font-sm);
+    border-bottom: none;
+  }
+}
+
+
+/* ===========================================
+    BANNER
+    =========================================== */
+.banner {
+  text-align: center;
+  background-color: var(--color-light);
+  padding: var(--space-5) var(--space-2);
+}
+
+.banner h2 {
+  font-size: var(--font-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+}
+
+.banner-imagens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.banner-imagens img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner-imagens img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================================
+    CONTEÚDO PRINCIPAL
+    =========================================== */
+main {
+  padding: var(--space-5) var(--space-2);
+  text-align: center;
+}
+
+main h1 {
+  color: var(--color-primary);
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-2);
+}
+
+main p {
+  max-width: 800px;
+  margin: 0 auto var(--space-4);
+  color: var(--color-dark);
+  font-size: var(--font-md);
+}
+
+.intro { /* Estilo específico para a introdução do projeto */
+  font-size: var(--font-lg);
+  color: var(--color-secondary);
+  font-weight: 300;
+}
+
+/* ===========================================
+    CARDS DE PROJETOS (GRID 12 COLUNAS IMPLÍCITO)
+    =========================================== */
+.projetos {
+  /* Utiliza Grid para o layout dos cards */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-3);
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--color-light);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.3s;
+  position: relative;
+  text-align: left; /* Altera o alinhamento de volta para o card */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: var(--space-3);
+}
+
+.card-content h2 {
+  color: var(--color-secondary);
+  font-size: var(--font-lg);
+  margin-bottom: var(--space-1);
+}
+
+.card-content p {
+  font-size: var(--font-sm);
+  color: var(--color-dark);
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-2); /* Adiciona espaço entre badge e parágrafo */
+}
+
+/* ===========================================
+    TAGS / BADGES (Componente de Interface)
+    =========================================== */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  margin-right: var(--space-1);
+  margin-top: var(--space-1);
+  text-transform: uppercase;
+}
+
+.badge-resgate {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.badge-apoio {
+  background-color: var(--color-warning);
+  color: var(--color-dark);
+}
+
+.badge-educacao {
+  background-color: var(--color-success);
+  color: white;
+}
+
+/* ===========================================
+    BOTÕES
+    =========================================== */
+.botao {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.botao:hover {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.botao:active {
+  transform: translateY(1px);
+  background: var(--color-primary);
+}
+
+.botao:disabled {
+  background: var(--color-neutral);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+/* ===========================================
+    FORMULÁRIOS
+    =========================================== */
+form {
+  background-color: var(--color-light);
+  padding: var(--space-4);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: var(--space-2);
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: var(--font-md);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(30,58,138,0.5);
+}
+
+/* ===========================================
+    ALERT / TOAST (FEEDBACK VISUAL)
+    =========================================== */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--color-success);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 10000;
+}
+.toast.show {
+  display: block;
+  animation: fadeInOut 3s ease;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+/* ===========================================
+    RODAPÉ
+    =========================================== */
+footer {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: var(--space-3) var(--space-2);
+  margin-top: var(--space-5);
+}
+
+footer p {
+  margin-bottom: 5px;
+  font-size: var(--font-sm);
+}
+
+/* ===========================================
+    BREAKPOINTS RESPONSIVOS (5 Mínimos)
+    =========================================== */
+
+/* 1. Desktop Grande (1200px) */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+
+/* 2. Desktop Médio / Laptop (992px) */
+@media (max-width: 992px) {
+  .logo {
+    font-size: var(--font-md);
+  }
+  .menu li a {
+    font-size: var(--font-md);
+    padding: 8px 15px;
+  }
+}
+
+/* 3. Tablet (768px) - MOBILE START */
+@media (max-width: 768px) {
+  .header-content {
+    justify-content: space-between;
+  }
+  /* O menu desktop é desabilitado e o mobile é ativado aqui */
+}
+
+/* 4. Tablet Pequeno / Celular Grande (576px) */
+@media (max-width: 576px) {
+  .banner h2 {
+    font-size: var(--font-lg);
+  }
+  .banner-imagens {
+    flex-direction: column;
+  }
+  .card img {
+    height: 150px; /* Reduz a altura da imagem no mobile */
+  }
+}
+
+/* 5. Celular Pequeno (400px) */
+@media (max-width: 400px) {
+  .banner-imagens img {
+    width: 100%;
+    height: 140px;
+  }
+  main h1 {
+    font-size: var(--font-lg);
+  }
+  form {
+    padding: var(--space-3);
+  }
+}
