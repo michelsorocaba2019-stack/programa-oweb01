@@ -4,20 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projetos - ONG Amigos dos Animais</title>
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/estilo.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
-  <header>...</header>
-  <nav class="menu-mobile">...</nav>
-  <section class="banner">...</section>
+  <header role="banner">
+    <div class="container header-content">
+      <div class="logo">🐶 ONG Amigos dos Animais</div>
+      
+      <nav class="nav-desktop">
+          <a href="index.html">Início</a>
+          <a href="projeto.html" class="active">Projetos</a>
+          <a href="cadastro.html">Cadastros</a>
+      </nav>
+      
+      <button 
+          class="menu-toggle" 
+          onclick="toggleMenu()"
+          aria-label="Abrir e fechar menu de navegação" 
+          aria-expanded="false" 
+          aria-controls="main-nav"
+      >
+          ☰
+      </button>
+    </div>
+  </header>
 
-  <main></main>
+  <nav class="menu-mobile" role="navigation" aria-label="Menu principal do site" id="main-nav">
+    <ul class="menu">
+      <li><a href="index.html">Início</a></li>
+      <li class="dropdown">
+        <a href="#" class="active">Projetos ▾</a>
+        <ul class="submenu">
+          <li><a href="projeto.html">Ver Projetos</a></li>
+          <li><a href="#">Campanhas</a></li>
+        </ul>
+      </li>
+      <li><a href="cadastro.html">Cadastros</a></li>
+    </ul>
+  </nav>
 
-  <footer>...</footer>
+  <section class="banner">
+    <div class="container">
+      <h2>Conheça Nossos Projetos</h2>
+      <p class="intro">Cada vida resgatada e cada adoção é um projeto de sucesso.</p>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
-  <script>window.onload = function() { if (window.location.pathname.includes('projeto.html')) window.location.href = 'index.html'; }</script>
+  <main>
+    <div class="container content-section">
+      <div class="projetos-grid">
+        
+        <div class="card">
+          <img src="imagens/caes-e-gatos.jpg" alt="Cachorro e gato resgatados">
+          <div class="card-content">
+            <h2>Projeto Resgate Feliz</h2>
+            <span class="badge badge-resgate">Ação Rápida</span>
+            <p>
+              Resgate e acolhimento imediato, garantindo abrigo, alimentação e cuidados veterinários.
+            </p>
+            <a href="#" class="botao">Saiba Mais</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="imagens/lar.jpg" alt="Cachorro sendo cuidado em lar temporário">
+          <div class="card-content">
+            <h2>Lar Temporário</h2>
+            <span class="badge badge-apoio">Voluntariado</span>
+            <p>
+              Criamos uma rede de lares temporários para acolher os animais enquanto esperam por adoção.
+            </p>
+            <a href="#" class="botao">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="imagens/ensino.jpg" alt="Crianças aprendendo sobre adoção de animais">
+          <div class="card-content">
+            <h2>Educação e Conscientização</h2>
+            <span class="badge badge-educacao">Conscientização</span>
+            <p>
+              Promovemos palestras e campanhas em escolas e comunidades sobre o respeito e a adoção responsável.
+            </p>
+            <a href="#" class="botao">Saiba Mais</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p>📞 Telefone: (11) 99999-9999 | ✉️ Email: contato@amigosdosanimais.org</p>
+      <p>📍 Endereço: Av. dos Animais, 123 - São Paulo, SP</p>
+    </div>
+  </footer>
+
+  <script src="script.min.js"></script>
 
 </body>
 </html>

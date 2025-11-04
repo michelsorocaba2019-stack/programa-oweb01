@@ -3,52 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ONG Amigos dos Animais - SPA</title>
-  <link rel="stylesheet" href="css/estilo.css">
+  <title>ONG Amigos dos Animais</title>
+  <link rel="stylesheet" href="css/estilo.min.css"> 
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <header>
+  
+    <button 
+        id="toggle-high-contrast" 
+        onclick="toggleHighContrast()"
+        aria-pressed="false"
+        aria-label="Alternar modo de alto contraste"
+        class="botao-acessibilidade"
+    >
+        Alto Contraste
+    </button>
+    
+  <header role="banner">
     <div class="container header-content">
       <div class="logo">🐶 ONG Amigos dos Animais</div>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      
+      <nav class="nav-desktop">
+          <a href="#inicio" onclick="loadPage('home'); return false;" class="active">Início</a>
+          <a href="#projetos" onclick="loadPage('projetos'); return false;">Projetos</a>
+          <a href="#cadastro" onclick="loadPage('cadastro'); return false;">Cadastros</a>
+      </nav>
+      
+      <button 
+          class="menu-toggle" 
+          onclick="toggleMenu()"
+          aria-label="Abrir e fechar menu de navegação" 
+          aria-expanded="false" 
+          aria-controls="main-nav"
+      >
+          ☰
+      </button>
     </div>
   </header>
 
-  <nav class="menu-mobile">
+  <nav class="menu-mobile" role="navigation" aria-label="Menu principal do site" id="main-nav">
     <ul class="menu">
-      <li><a href="#" onclick="loadPage('home'); return false;" class="active">Início</a></li>
+      <li><a href="#inicio" onclick="loadPage('home'); return false;" class="active">Início</a></li>
       <li class="dropdown">
-        <a href="#">Projetos ▾</a>
+        <a href="#projetos" onclick="loadPage('projetos'); return false;">Projetos ▾</a>
         <ul class="submenu">
-          <li><a href="#" onclick="loadPage('projetos'); return false;">Ver Projetos</a></li>
-          <li><a href="#">Campanhas</a></li>
+          <li><a href="#projetos" onclick="loadPage('projetos'); return false;">Ver Projetos</a></li>
+          <li><a href="#campanhas">Campanhas</a></li>
         </ul>
       </li>
-      <li><a href="#" onclick="loadPage('cadastro'); return false;">Cadastros</a></li>
+      <li><a href="#cadastro" onclick="loadPage('cadastro'); return false;">Cadastros</a></li>
     </ul>
   </nav>
 
   <section class="banner">
-    <h2>Bem-vindo à nossa ONG</h2>
-    <div class="banner-imagens">
-      <img src="Imagens/caes.jpg" alt="Cachorro feliz">
-      <img src="Imagens/gatos.jpg" alt="Gato fofo">
-      <img src="Imagens/caes-e-gatos.jpg" alt="Cachorro carinhoso">
+    <div class="container">
+      <h2>Bem-vindo à nossa ONG</h2>
+      <p class="intro">
+        Juntos, transformamos vidas. Resgate, cuidado e adoção responsável para cães e gatos.
+      </p>
+      <div class="banner-imagens">
+        <img src="Imagens/caes.jpg" alt="Cachorro feliz">
+        <img src="Imagens/gatos.jpg" alt="Gato fofo">
+        <img src="Imagens/caes-e-gatos.jpg" alt="Cachorro carinhoso">
+      </div>
     </div>
   </section>
 
   <main>
-    <h1>Carregando...</h1>
-  </main>
+    </main>
 
-  <footer>
-    <p>📞 Telefone: (11) 99999-9999 | ✉️ Email: contato@amigosdosanimais.org</p>
-    <p>📍 Endereço: Rua dos Animais, 123 - São Paulo, SP</p>
-    <p>© 2025 ONG Amigos dos Animais — Todos os direitos reservados</p>
+  <footer role="contentinfo">
+    <div class="container">
+      <p>📞 Telefone: (11) 99999-9999 | ✉️ Email: contato@amigosdosanimais.org</p>
+      <p>📍 Endereço: Av. dos Animais, 123 - São Paulo, SP</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.min.js"></script>
 
 </body>
 </html>
